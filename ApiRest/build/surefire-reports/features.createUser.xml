@@ -1,0 +1,25 @@
+<testsuite failures="0" name="features/createUser.feature" skipped="0" tests="2" time="4.839871">
+  <testcase classname="features.createUser" name="Crear Usuarios" time="2.421457">
+    <system-out>* url urlPetStoreUsuarios ................................................. passed
+* def dataUser = read('../data/creacionUsuarios.json') .................... passed
+* set dataUser.username = "brand" ......................................... passed
+Given path '' ............................................................. passed
+When request dataUser ..................................................... passed
+And method POST ........................................................... passed
+Then status 200 ........................................................... passed</system-out>
+  </testcase>
+  <testcase classname="features.createUser" name="Consultar Usuarios" time="2.418414">
+    <system-out>* url urlPetStoreUsuarios ................................................. passed
+* def dataUser = read('../data/creacionUsuarios.json') .................... passed
+* set dataUser.username = "brand" ......................................... passed
+Given path '' ............................................................. passed
+When request dataUser ..................................................... passed
+And method POST ........................................................... passed
+Then status 200 ........................................................... passed
+* url urlPetStoreUsuarios ................................................. passed
+Given path '/brand' ....................................................... passed
+When method GET ........................................................... passed
+Then status 200 ........................................................... passed
+And print response ........................................................ passed</system-out>
+  </testcase>
+</testsuite>

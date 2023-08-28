@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets{
+    test{
+        java{
+            srcDir file('src/test/java')
+            exclude '**/*UiRunner*.java'
+        }
+        resources {
+            srcDir file('src/test/java')
+            exclude '**/*java'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.intuit.karate:karate-junit5:0.9.3'
+    implementation 'com.intuit.karate:karate-netty:0.9.2'
+    implementation 'com.intuit.karate:karate-apache:0.9.2'
+    implementation 'net.masterthought:cucumber-reporting:5.3.0'
+    implementation 'org.testng:testng:7.1.0'
+    testImplementation 'junit:junit:4.12'
+}
+
+test {
+    include'**/*ParallelTest*'
+}
+
+gradle.startParameter.refreshDependencies = true

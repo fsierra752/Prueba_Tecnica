@@ -1,0 +1,14 @@
+<testsuite failures="0" name="features/pets.feature" skipped="0" tests="1" time="3.886834">
+  <testcase classname="features.pets" name="Consultar mascotas vendidas" time="3.886834">
+    <system-out>Given url 'https://petstore.swagger.io/v2/pet/findByStatus?status=sold' ... passed
+When method GET ........................................................... passed
+Then status 200 ........................................................... passed
+* def responseJson = response ............................................. passed
+* def soldPets = responseJson ............................................. passed
+* def petNames = karate.map(soldPets, function(pet){ return { id: pet.id, name: pet.name } }) . passed
+* print petNames .......................................................... passed
+* def nameCounts = {} ..................................................... passed
+* eval karate.forEach(petNames, function(name){ nameCounts[name.name] = nameCounts[name.name] == null ? 1 : nameCounts[name.name] + 1 }) . passed
+* print nameCounts ........................................................ passed</system-out>
+  </testcase>
+</testsuite>
